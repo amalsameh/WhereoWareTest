@@ -34,39 +34,8 @@
         e.preventDefault();
         $("#product-image").click();
     });
-   
-
-   /* $('#upload').fileupload({
-        autoUpload: true,
-        url: '/Product/UploadImage',
-        dataType: 'json',
-        add: function (e, data) {
-            var jqXHR = data.submit()
-                .success(function (data, textStatus, jqXHR) {
-                    if (data.isUploaded) {
-
-                    }
-                    else {
-
-                    }
-                    alert(data.message);
-                })
-                .error(function (data, textStatus, errorThrown) {
-                    if (typeof (data) != 'undefined' || typeof (textStatus) != 'undefined' || typeof (errorThrown) != 'undefined') {
-                        alert(textStatus + errorThrown + data);
-                    }
-                });
-        },
-        fail: function (event, data) {
-            if (data.files[0].error) {
-                alert(data.files[0].error);
-            }
-        }
-    });*/
-   
-
+         
     $("form[data-otf-ajax='true']").submit(ajaxFormSubmit);
-    //$(".pagedList a").attr("href","javascript:void(0)");
     $(".pagedList a").click(getPage);
     function imageChange(fileControl) {
         console.log(fileControl);
