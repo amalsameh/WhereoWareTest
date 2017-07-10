@@ -1,0 +1,9 @@
+﻿@model IPagedList<ProductListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Products/_Layout.cshtml";
+}
+
+
+@Html.Partial("_Products",Model)

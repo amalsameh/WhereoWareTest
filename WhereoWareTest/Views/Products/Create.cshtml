@@ -1,0 +1,61 @@
+﻿@model ProductUploadViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Products/_Layout.cshtml";
+}
+<hr />
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    @Html.Partial("_ImageUpload", Model)
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SKU, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.SKU, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SKU, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Overview, htmlAttributes: new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.Overview, new { htmlAttributes = new { @class = "form-control", _cols = "40" } })
+                    @Html.ValidationMessageFor(model => model.Overview, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+
+                    <input type="submit" value="Create" class="btn btn-flat btn-default" />
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+@section Scripts {
+
+}
